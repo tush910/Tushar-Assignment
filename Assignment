@@ -1,0 +1,82 @@
+Assignment 4
+
+Observations:-
+1. With the help of sudo su command we been to root folder 
+
+[ec2-user@ip-172-31-30-17 ~]$ sudo su
+[root@ip-172-31-30-17 ec2-user]# ls
+istio-1.5.2  istio-1.5.2-linux.tar.gz  kubernetes-training
+
+
+2. to clone the file from github we used this command " git clone https://github.com/ashishrpandey/example-voting-app"
+
+[root@ip-172-31-30-17 ec2-user]# git clone https://github.com/ashishrpandey/example-voting-app
+Cloning into 'example-voting-app'...
+remote: Enumerating objects: 494, done.
+remote: Total 494 (delta 0), reused 0 (delta 0), pack-reused 494
+Receiving objects: 100% (494/494), 236.17 KiB | 12.43 MiB/s, done.
+Resolving deltas: 100% (179/179), done.
+
+It cloned everything into the current directory. On using ls command we can see the following files
+
+[root@ip-172-31-30-17 example-voting-app]# ls
+architecture.png  dockercloud.yml  docker-compose-javaworker.yml  docker-compose-simple.yml  docker-compose.yml  docker-stack.yml  k8s-specifications  LICENSE  MAINTAINERS  README.md  result  vote  worker
+
+3. With the help of "cd k8s-specifications" we entered into the directory and on using "ls" we could see the different YAML files in the directory.
+
+[root@ip-172-31-30-17 example-voting-app]# cd k8s-specifications
+[root@ip-172-31-30-17 k8s-specifications]# ls
+db-deployment.yaml  db-service.yaml  redis-deployment.yaml  redis-service.yaml  result-deployment.yaml  result-service.yaml  vote-deployment.yaml  vote-service.yaml  worker-deployment.yaml
+
+4. On applying "kubectl apply -f ." It is creating pods for all the YAML files are available in the directory
+
+[root@ip-172-31-30-17 k8s-specifications]# kubectl apply -f .
+deployment.apps/db created
+service/db created
+deployment.apps/redis created
+service/redis created
+deployment.apps/result created
+service/result created
+deployment.apps/vote created
+service/vote created
+deployment.apps/worker created
+[root@ip-172-31-30-17 k8s-specifications]#
+
+All created pods are as follows:
+
+[root@ip-172-31-30-17 k8s-specifications]# kubectl get po
+NAME                      READY   STATUS    RESTARTS   AGE
+db-b54cd94f4-zpf2f        2/2     Running   0          3m14s
+redis-868d64d78-xrpfl     2/2     Running   0          3m14s
+result-5d57b59f4b-6dcgs   2/2     Running   0          3m13s
+vote-94849dc97-bs9lj      2/2     Running   0          3m13s
+worker-dd46d7584-rqf2x    2/2     Running   0          3m13s
+[root@ip-172-31-30-17 k8s-specifications]#
+
+5. We faced little errors due to name space and nodeports, to  resolve it we changed namespace to default and nodeports after which we opened browser and entered http://3.0.147.251:32004/
+
+It opened the webpage for voting 
+
+And simultaneouly I opened another tab to check the result page for that I entered http://3.0.147.251:31004/
+
+It opened the webpage for result
+
+6. I casted my vote and the result page was observed to be working correctly. I also tried to alternate my choices and it was observed that result webpage was changing accordingly.
+
+
+7. On deleting the vote and result pods new pods are created and it did not effect the working of app.
+
+8. On deleting the db-pod the result page was not working as previously. It is observed that on restarting the result pod, result started to work but  it lost some previous data.
+
+
+
+
+Assignment 1:-
+
+A common use-case, where you will use a daemon set instead of replica set is as follows:
+
+Whenever we delete a pod in replica set it creates a new pod after deleting on 
+
+
+
+
