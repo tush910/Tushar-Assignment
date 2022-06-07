@@ -47,5 +47,11 @@ it will create a new pod simultaneouly
 This is the common use case
 
 
+Assignment 2:-
+
+1. Get the deploys using kubectl get deploy
+2. go to vi "yaml file name" and make changes 
+2. Then deploy the updated file using using "kubectl set image deployment kubia nodejs=luksa/kubia:v2"
 
 
+Assignment 3:-
