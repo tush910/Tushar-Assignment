@@ -40,9 +40,11 @@ It opened the webpage for result
 
 Assignment 1:-
 
-A common use-case, where you will use a daemon set instead of replica set is as follows:
-
-Whenever we delete a pod in replica set it creates a new pod after deleting on 
+The DaemonSet feature is used to ensure that  pods are scheduled and running on every single available node. When a node is removed,
+the DaemonSet controller ensures that the pod associated with that node is garbage collected.
+Deleting a DaemonSet will clean up all the pods that DaemonSet has created while in case of replica set whenever you delete a node or pod,
+it will create a new pod simultaneouly
+This is the common use case
 
 
 
