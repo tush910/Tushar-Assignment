@@ -3,16 +3,7 @@ Assignment 4
 Observations:-
 1. With the help of sudo su command we been to root folder 
 
-[ec2-user@ip-172-31-30-17 ~]$ sudo su
-[root@ip-172-31-30-17 ec2-user]# ls
-istio-1.5.2  istio-1.5.2-linux.tar.gz  kubernetes-training
-
-
-2. to clone the file from github we used this command " git clone https://github.com/ashishrpandey/example-voting-app"
-
-
-
-It cloned everything into the current directory. On using ls command we can see the following files
+2. It clone everything into the current directory. On using ls command we can see the following files
 
 
 3. With the help of "cd k8s-specifications" we entered into the directory and on using "ls" we could see the different YAML files in the directory.
