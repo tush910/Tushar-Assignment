@@ -1,6 +1,0 @@
-Assignment 1
-
-The DaemonSet feature is used to ensure that  pods are scheduled and running on every single available node. When a node is removed,
-the DaemonSet controller ensures that the pod associated with that node is garbage collected.
-Deleting a DaemonSet will clean up all the pods that DaemonSet has created while in case of replica set whenever you delete a node or pod, it will create a new pod simultaneouly
-This is the common use case
