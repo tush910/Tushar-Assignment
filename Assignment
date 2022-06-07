@@ -34,15 +34,28 @@ Assignment 1:-
 The DaemonSet feature is used to ensure that  pods are scheduled and running on every single available node. When a node is removed,
 the DaemonSet controller ensures that the pod associated with that node is garbage collected.
 Deleting a DaemonSet will clean up all the pods that DaemonSet has created while in case of replica set whenever you delete a node or pod,
-it will create a new pod simultaneouly
-This is the common use case
+it will create a new pod simultaneouly. Also you can have pods with different conditions using daemon feature.
+
 
 
 Assignment 2:-
 
 1. Get the deploys using kubectl get deploy
 2. go to vi "yaml file name" and make changes 
+3. Then we will patch for minimum read kubectl patch deployment with command " kubectl patch deployment kubia -p '{"spec": {"minReadySeconds": "set time"}}'
 2. Then deploy the updated file using using "kubectl set image deployment kubia nodejs=luksa/kubia:v2"
 
 
 Assignment 3:-
+1. First we need to check whether the service is running on the cluster or not for that we can also use DNS cluster. For that we can use this command
+kubectl get services kube-dns --namespace=kube-system
+
+It will provide the dns name and then we can check whether it is running or not
+
+If it is not running then we can use command "kubectl run curl --image=radial/busyboxplus:curl -i --tty"
+
+after that you can enter nslookup my-nginx. It will start working
+
+
+
+
